@@ -1,45 +1,29 @@
 import React from "react";
 
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
 import { ReactComponent as Logo } from "../../assets/svgs/siderLogo.svg";
 
 import { Button, Form, Input } from "antd";
 
-import "./loginForm.css";
+import { useDispatch } from "react-redux";
 
-type TFormData = {
-  email: string;
-  password: string;
-};
+import "./loginForm.css";
+import { loginUserAsync } from "../../store/user/user.action";
+
+// type TFormData = {
+//   email: string;
+//   password: string;
+// };
 
 const LoginForm = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const onFinish = async (formData: TFormData) => {
-    console.log("Success:", formData);
+  const onFinish = async (formData) => {
+    console.log("user form data:", formData);
 
-    try {
-      const res = await axios.post(
-        "https://api.dynocrm.com/api/v1/users/login",
-        formData
-      );
-      const data = await res.data;
-      console.log(data);
-
-      if ((data.status = "success")) {
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
-        navigate("/dashboard");
-      }
-    } catch (error: any) {
-      console.log(error);
-      alert(error.message);
-    }
+    await dispatch(loginUserAsync(formData));
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   return (
