@@ -1,0 +1,33 @@
+/* antd css */
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.layout__header {
+  display: flex;
+  justify-content: space-between;
+  height: 9rem;
+}
+
+.header__left-side,
+.header__right-side {
+  display: flex;
+  padding: 2rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header__left-side {
+  line-height: 1;
+}
+
+.header__user-info {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.header__right-side {
+}

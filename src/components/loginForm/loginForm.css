@@ -1,0 +1,101 @@
+.loginForm__container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: rgb(244, 246, 249);
+  font-family: "Quicksand", sans-serif;
+  color: #000;
+  font-weight: 500;
+  font-size: 1.8rem;
+
+  margin-top: -3.5rem;
+}
+
+.loginForm__logo-container {
+  width: 13rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.loginForm__logo-container .loginForm__logo {
+  width: 100%;
+  fill: black;
+}
+
+.loginForm__logo .loginForm__name {
+  color: #eb4242;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.loginForm {
+  width: 38%;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 15px;
+  padding: 2rem 3rem 3rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  margin: 1rem 17.5% 0px;
+  text-align: center;
+}
+
+.loginForm .loginForm__item {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+}
+.loginForm .loginForm__item label {
+  margin-bottom: 1rem;
+
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.4rem;
+}
+
+.loginForm .loginForm__input {
+  height: 5rem;
+  font-size: 1.5rem;
+  outline: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: -0.8rem;
+  color: rgba(0, 0, 0, 0.85);
+  /* flex: 1; */
+  width: 100% !important;
+}
+
+/* overwriting ant styles */
+.ant-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100% !important;
+}
+.ant-form-horizontal .ant-form-item-control {
+  flex: 1 1;
+  min-width: 100%;
+}
+
+.loginForm .loginForm__text {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.3rem;
+  text-align: center;
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.loginForm__btn {
+  border-radius: 1rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

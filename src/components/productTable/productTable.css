@@ -1,0 +1,58 @@
+.productTable__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.productTable__btn {
+  border: none;
+  border-radius: 5px;
+  font-family: "Quicksand", sans-serif;
+  box-sizing: border-box;
+  color: white;
+  font-weight: 500;
+}
+
+.productTable__header .productTable__add-btn {
+  background-color: orangered;
+}
+.productTable__header .productTable__add-btn:hover {
+  background-color: white;
+  color: orangered;
+  border: 1px solid orangered;
+}
+
+.productTable {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+
+/* overwriting antd classes */
+.ant-table-thead > tr > th {
+  font-weight: bold;
+}
+
+.productTable__edit-btn,
+.productTable__delete-btn {
+  font-size: 1.1rem;
+  padding: 5px 7px;
+}
+
+.productTable__edit-btn {
+  background-color: green;
+}
+.productTable__edit-btn:hover {
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+}
+.productTable__delete-btn {
+  background-color: red;
+}
+.productTable__delete-btn:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
