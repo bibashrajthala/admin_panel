@@ -4,10 +4,10 @@ import { ReactComponent as Logo } from "../../assets/svgs/siderLogo.svg";
 
 import { Button, Form, Input } from "antd";
 
+import { loginUserAsync } from "../../store/user/user.action";
 import { useDispatch } from "react-redux";
 
 import "./loginForm.css";
-import { loginUserAsync } from "../../store/user/user.action";
 
 // type TFormData = {
 //   email: string;

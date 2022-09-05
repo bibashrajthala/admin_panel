@@ -8,6 +8,9 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Auth from "./pages/auth/Auth";
 import Home from "./pages/home/Home";
 import Products from "./pages/products/Products";
+import AddProductPage from "./pages/addProductPage/AddProductPage";
+import EditProductPage from "./pages/editProductPage/EditProductPage";
+
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "./store/user/user.selector";
 
@@ -33,6 +36,18 @@ function App() {
         <Route
           path="/products"
           element={user || token ? <Products /> : <Navigate to="../auth" />}
+        />
+        <Route
+          path="/products/add"
+          element={
+            user || token ? <AddProductPage /> : <Navigate to="../auth" />
+          }
+        />
+        <Route
+          path="/products/edit/:id"
+          element={
+            user || token ? <EditProductPage /> : <Navigate to="../auth" />
+          }
         />
       </Routes>
     </div>

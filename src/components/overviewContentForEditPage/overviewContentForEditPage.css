@@ -1,0 +1,11 @@
+.overviewEdit {
+  display: grid;
+  font-size: 1.1rem;
+  grid-template-columns: 23rem repeat(2, 1fr);
+}
+
+.overviewEdit .overviewEdit__primaryDetails {
+}
+
+.overviewEdit .overviewEdit__primaryDetails {
+}

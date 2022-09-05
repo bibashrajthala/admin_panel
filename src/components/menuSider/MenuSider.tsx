@@ -48,6 +48,7 @@ const MenuSider = (props: Props) => {
         onCollapse={(collapsed, type) => {
           console.log(collapsed, type);
         }}
+        className='layout__menuSider'
       >
         <div className="menuSider__logo">
           <SiderLogo />

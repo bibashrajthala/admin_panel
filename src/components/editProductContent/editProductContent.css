@@ -1,0 +1,9 @@
+.editPage__item-path .ant-card-body {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.editPage__item-path .ant-card-body button {
+  margin-left: auto;
+}

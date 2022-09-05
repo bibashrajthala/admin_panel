@@ -1,12 +1,12 @@
-/* antd css */
-.site-layout-sub-header-background {
-  background: #fff;
-}
-
 .layout__header {
   display: flex;
   justify-content: space-between;
   height: 9rem;
+  position: fixed;
+  top: 0;
+  left: 20rem;
+  z-index: 5;
+  width: 88vw;
 }
 
 .header__left-side,
@@ -19,6 +19,11 @@
 
 .header__left-side {
   line-height: 1;
+}
+
+/* antd css */
+.site-layout-sub-header-background {
+  background: #fff;
 }
 
 .header__user-info {

@@ -8,12 +8,12 @@ const Products = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getProducts = async () => {
-      dispatch(getProductsAsync());
+    const getProducts = () => {
+      dispatch(getProductsAsync(25, 1));
     };
     getProducts();
-  }, []);
-  return <LayoutApp page="products" />;
+  }, [dispatch]);
+  return <LayoutApp page="PRODUCTS_PAGE" />;
 };
 
 export default Products;

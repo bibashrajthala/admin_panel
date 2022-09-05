@@ -1,3 +1,17 @@
+.layout__menuSider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  min-height: 100vh;
+
+  flex: 0 !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  width: 20rem !important;
+}
+
 .menuSider__logo {
   width: 100%;
   padding: 3rem 2rem;

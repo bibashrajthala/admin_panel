@@ -1,0 +1,31 @@
+.editProductBox {
+  border: 1px solid red;
+}
+
+.editProductBox .editProductBox__editBoxes {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.editProductBox__editBoxes .editProductBox__editBox {
+  border: 1px solid green;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.editProductBox__editBoxes .editProductBox__editBox:hover {
+  border-left: 1px solid red;
+}
+
+.editProductBox__editBox .editBox__field {
+  border: 1px solid orange;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.editProductBox__editBox .editbox__editIcon {
+  cursor: pointer;
+}

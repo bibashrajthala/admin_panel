@@ -1,0 +1,39 @@
+.nestedForm_warehouses {
+  flex-basis: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.nestedForm_warehouse {
+  display: flex;
+  justify-content: flex-start;
+}
+.nestedForm_warehouse > * {
+  flex-basis: 20rem;
+}
+
+.nestedForm_warehouses--text {
+  margin-left: 26rem;
+  margin-bottom: 1rem;
+}
+
+.form-btn-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* overwriting ant styles */
+.nestedForm > .ant-card-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nestedForm > .ant-card-body > * {
+  flex: 1;
+  min-width: 20rem;
+}
+
+.nestedForm > .ant-card-body > *:not(:last-child) {
+  margin-right: 1rem;
+}

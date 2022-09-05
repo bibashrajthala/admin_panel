@@ -27,6 +27,7 @@
 .productTable {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
+  /* height: 50rem; */
 }
 
 /* overwriting antd classes */
