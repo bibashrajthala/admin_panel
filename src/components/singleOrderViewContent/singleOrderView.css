@@ -1,0 +1,58 @@
+.orderView div {
+  font-size: 1rem;
+}
+
+.orderView-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ovc__h-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.ovc__h-left > * {
+  margin-right: 1rem;
+}
+
+.ovc__h-orderStatus {
+  background-color: rgb(17, 123, 245);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.ovc__h-right {
+  display: flex;
+}
+
+.ovc__h-right > * {
+  margin-left: 1rem;
+}
+
+.orderView-btnsContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.orderView-btnsContainer > * {
+  margin-right: 1rem;
+  border-radius: 3px;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.orderView-amounts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.ant-modal-confirm-confirm .ant-modal-confirm-body > .anticon {
+  display: none;
+}

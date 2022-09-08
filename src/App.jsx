@@ -13,6 +13,9 @@ import EditProductPage from "./pages/editProductPage/EditProductPage";
 
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "./store/user/user.selector";
+import SalesInvoicePage from "./pages/salesInvoicePage/SalesInvoicePage";
+import SalesOrderPage from "./pages/salesOrderPage/SalesOrderPage";
+import SingleOrderView from "./pages/singleOrderView/SingleOrderView";
 
 function App() {
   const user = useSelector(selectCurrentUser);
@@ -47,6 +50,24 @@ function App() {
           path="/products/edit/:id"
           element={
             user || token ? <EditProductPage /> : <Navigate to="../auth" />
+          }
+        />
+        <Route
+          path="/sales/orders"
+          element={
+            user || token ? <SalesOrderPage /> : <Navigate to="../auth" />
+          }
+        />
+        <Route
+          path="/sales/orders/:id"
+          element={
+            user || token ? <SingleOrderView /> : <Navigate to="../auth" />
+          }
+        />
+        <Route
+          path="/sales/invoices"
+          element={
+            user || token ? <SalesInvoicePage /> : <Navigate to="../auth" />
           }
         />
       </Routes>

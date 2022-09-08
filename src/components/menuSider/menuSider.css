@@ -30,8 +30,13 @@
   font-weight: 500;
   color: white;
   font-family: "Quicksand", sans-serif;
+  /* background-color: sienna; */
 }
 .ant-menu-item .ant-menu-item-icon {
   font-size: 1.8rem;
   font-weight: 700;
+}
+
+.ant-menu-item-selected {
+  background-color: #322f33 !important;
 }
