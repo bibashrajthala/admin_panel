@@ -7,6 +7,8 @@ import EditProductContent from "../editProductContent/EditProductContent";
 import SalesOrderTable from "../salesOrderTable/SalesOrderTable";
 import SalesInvoiceTable from "../salesInvoiceTable/SalesInvoiceTable";
 import SingleOrderViewContent from "../singleOrderViewContent/SingleOrderViewContent";
+import EditOrderForm from "../editOrderForm/EditOrderForm";
+import ExpensesTable from "../expensesTable/ExpensesTable";
 
 const { Content } = Layout;
 
@@ -30,6 +32,8 @@ const MainContent = ({ page }: TMainContentProps) => {
         {page === "SALES_ORDER_PAGE" && <SalesOrderTable />}
         {page === "SALES_INVOICE_PAGE" && <SalesInvoiceTable />}
         {page === "SINGLE_ORDER_VIEW_PAGE" && <SingleOrderViewContent />}
+        {page === "EDIT_ORDER_PAGE" && <EditOrderForm />}
+        {page === "EXPENSES_PAGE" && <ExpensesTable />}
       </div>
     </Content>
   );

@@ -44,6 +44,11 @@ const menuItems = [
       },
     ],
   },
+  {
+    icon: React.createElement(ShoppingOutlined),
+    label: "Expenses",
+    key: "4",
+  },
 ];
 
 const MenuSider = (props: Props) => {
@@ -62,6 +67,7 @@ const MenuSider = (props: Props) => {
     if (key === "2") navigate("/products");
     if (key === "3.1") navigate("/sales/orders");
     if (key === "3.2") navigate("/sales/invoices");
+    if (key === "4") navigate("/expenses");
   };
   return (
     <>

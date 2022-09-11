@@ -1,5 +1,14 @@
-import React from "react";
-import { Breadcrumb, Button, Card, Divider, Table, Modal } from "antd";
+import React, { useState } from "react";
+import {
+  Breadcrumb,
+  Button,
+  Card,
+  Divider,
+  Table,
+  Modal,
+  Form,
+  Input,
+} from "antd";
 import { FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { FaShuttleVan } from "react-icons/fa";
@@ -7,10 +16,15 @@ import { MdDone, MdCancel } from "react-icons/md";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectOrder } from "../../store/orders/orders.selector";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 
 import "./singleOrderView.css";
+import {
+  getOrderByIdAsync,
+  updateOrderStatusAsync,
+} from "../../store/orders/orders.action";
+import FormItem from "antd/es/form/FormItem";
 
 type Props = {};
 
@@ -77,10 +91,15 @@ const columns = [
 ];
 
 const SingleOrderViewContent = (props: Props) => {
-  //   const dispatch = useDispatch();
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const order = useSelector(selectOrder);
+  const [isSubModalOpen, setIsSubModalOpen] = useState(false);
+  const [orderStatus, setOrderStatus] = useState({});
+  const [form] = Form.useForm();
 
-  console.log(order);
+  // console.log(order);
 
   const {
     _id,
@@ -153,18 +172,58 @@ const SingleOrderViewContent = (props: Props) => {
   const taxAmount = (tax_rate / 100) * total;
   const grandTotal = total + taxAmount;
 
+  // for submodals for cancelling, invoicing and confirming orders
+  const showModal = () => {
+    setIsSubModalOpen(true);
+  };
+  const handleOk = async (values: any) => {
+    console.log(values);
+    const newOrderStatus = {
+      ...orderStatus,
+      order_cancel_reason: values?.order_cancel_reason,
+    };
+    await dispatch<any>(updateOrderStatusAsync(newOrderStatus));
+    await dispatch<any>(getOrderByIdAsync(id));
+    setIsSubModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsSubModalOpen(false);
+  };
+
   // for modal for 4 buttons above table
   const { confirm } = Modal;
   const showConfirm = (task: string) => {
     confirm({
       content: `Are you sure you want to change Order status from ${order_status} to ${task}?`,
-      onOk() {
+      async onOk() {
         console.log("OK");
+        let newOrderStatus;
+        newOrderStatus = { order_id: id, order_status: task };
+        if (task === "Cancelled") {
+          setOrderStatus(newOrderStatus);
+          showModal();
+
+          // need to take values.order_cancel_reason to here from handleOk of sub modal for cancel order
+          // newOrderStatus = {
+          //   order_id: id,
+          //   order_status: task,
+          //   order_cancel_reason: "",
+          // };
+        }
+
+        if (task !== "Cancelled") {
+          await dispatch<any>(updateOrderStatusAsync(newOrderStatus));
+          await dispatch<any>(getOrderByIdAsync(id));
+        }
       },
       onCancel() {
         console.log("Cancel");
       },
     });
+  };
+
+  const handleEditOrder = () => {
+    navigate(`../../../sales/orders/edit/${_id}`);
   };
 
   return (
@@ -190,7 +249,11 @@ const SingleOrderViewContent = (props: Props) => {
           </div>
 
           <div className="ovc__h-right">
-            <Button className="ovc__h-editBtn" icon={<FormOutlined />}>
+            <Button
+              className="ovc__h-editBtn"
+              icon={<FormOutlined />}
+              onClick={handleEditOrder}
+            >
               Edit
             </Button>
             <Button className="ovc__h-deleteBtn" icon={<DeleteOutlined />}>
@@ -329,6 +392,18 @@ const SingleOrderViewContent = (props: Props) => {
             Cancel Order
           </Button>
         )}
+        <Modal
+          title="Cancellation Reason"
+          visible={isSubModalOpen}
+          onOk={form.submit}
+          onCancel={handleCancel}
+        >
+          <Form form={form} onFinish={handleOk}>
+            <FormItem name="order_cancel_reason">
+              <Input.TextArea />
+            </FormItem>
+          </Form>
+        </Modal>
       </div>
 
       <Table

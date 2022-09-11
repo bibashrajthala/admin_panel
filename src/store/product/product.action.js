@@ -2,6 +2,7 @@ import { PRODUCT_ACTION_TYPES } from "./product.types";
 import { createAction } from "../../utils/createAction";
 import {
   getAllProducts,
+  getAllProductsList,
   getProductsBrandList,
   getProductsCategories,
   getProductsUnits,
@@ -17,13 +18,24 @@ import {
 } from "./product.api.requests";
 
 //action creaters
-// get all products (object inside which is products array)
+// get products list  (object inside which is products array)
 const getProductsStart = () =>
   createAction(PRODUCT_ACTION_TYPES.GET_PRODUCTS_START);
 const getProductsSuccess = (productsData) =>
   createAction(PRODUCT_ACTION_TYPES.GET_PRODUCTS_SUCCESS, productsData);
 const getProductsFailed = (error) =>
   createAction(PRODUCT_ACTION_TYPES.GET_PRODUCTS_FAILED, error);
+
+// get all products list  (object inside which is products array)
+const getAllProductsListStart = () =>
+  createAction(PRODUCT_ACTION_TYPES.GET_ALL_PRODUCTS_LIST_START);
+const getAllProductsListSuccess = (productsList) =>
+  createAction(
+    PRODUCT_ACTION_TYPES.GET_ALL_PRODUCTS_LIST_SUCCESS,
+    productsList
+  );
+const getAllProductsListFailed = (error) =>
+  createAction(PRODUCT_ACTION_TYPES.GET_ALL_PRODUCTS_LIST_FAILED, error);
 
 // brand list (array)
 const getProductsBrandListSuccess = (brandList) =>
@@ -127,7 +139,7 @@ const deleteProductFailed = (error) =>
 
 /////////////////////////////////////////
 // thunks
-//get  all products (object inside which is products array)
+//get products (object inside which is products array)
 export const getProductsAsync =
   (itemsPerPage, currentPage) => async (dispatch) => {
     dispatch(getProductsStart());
@@ -141,6 +153,20 @@ export const getProductsAsync =
       dispatch(getProductsFailed(error));
     }
   };
+
+export const getAllProductsListAsync = () => async (dispatch) => {
+  dispatch(getAllProductsListStart());
+  try {
+    const { data } = await getAllProductsList();
+    // console.log(data);
+    // console.log(data.data);
+    // const productsList = data.data[0]
+    dispatch(getAllProductsListSuccess(data.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(getAllProductsListFailed(error));
+  }
+};
 
 //get  brand list (array)
 export const getProductsBrandListAsync = () => async (dispatch) => {

@@ -2,6 +2,8 @@ export const selectTotalProducts = (state) =>
   state.product?.products?.total_records;
 export const selectProducts = (state) => state.product?.products?.data;
 
+export const selectAllProductsList = (state) => state.product?.productsList;
+
 export const selectProductsBrandList = (state) => state.product?.brandList;
 
 export const selectProductsUnits = (state) => state.product?.units;

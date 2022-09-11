@@ -2,6 +2,7 @@ import { PRODUCT_ACTION_TYPES } from "./product.types";
 
 const PRODUCT_INITIAL_STATE = {
   products: null,
+  productsList: null,
   loading: false,
   error: null,
   brandList: [],
@@ -24,6 +25,13 @@ export const productReducer = (state = PRODUCT_INITIAL_STATE, action = {}) => {
       return { ...state, products: payload, loading: false, error: null };
     case PRODUCT_ACTION_TYPES.GET_PRODUCTS_FAILED:
       return { ...state, products: null, loading: false, error: payload };
+
+    case PRODUCT_ACTION_TYPES.GET_ALL_PRODUCTS_LIST_START:
+      return { ...state, loading: true, error: null };
+    case PRODUCT_ACTION_TYPES.GET_ALL_PRODUCTS_LIST_SUCCESS:
+      return { ...state, productsList: payload, loading: false, error: null };
+    case PRODUCT_ACTION_TYPES.GET_ALL_PRODUCTS_LIST_FAILED:
+      return { ...state, productsList: null, loading: false, error: payload };
 
     case PRODUCT_ACTION_TYPES.GET_PRODUCTS_BRANDLIST_SUCCESS:
       return { ...state, brandList: payload, error: null };

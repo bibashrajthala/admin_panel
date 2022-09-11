@@ -16,6 +16,8 @@ import { selectCurrentUser } from "./store/user/user.selector";
 import SalesInvoicePage from "./pages/salesInvoicePage/SalesInvoicePage";
 import SalesOrderPage from "./pages/salesOrderPage/SalesOrderPage";
 import SingleOrderView from "./pages/singleOrderView/SingleOrderView";
+import EditOrderPage from "./pages/editOrderPage/EditOrderPage";
+import Expenses from "./pages/expenses/Expenses";
 
 function App() {
   const user = useSelector(selectCurrentUser);
@@ -65,10 +67,20 @@ function App() {
           }
         />
         <Route
+          path="/sales/orders/edit/:id"
+          element={
+            user || token ? <EditOrderPage /> : <Navigate to="../auth" />
+          }
+        />
+        <Route
           path="/sales/invoices"
           element={
             user || token ? <SalesInvoicePage /> : <Navigate to="../auth" />
           }
+        />
+        <Route
+          path="/expenses"
+          element={user || token ? <Expenses /> : <Navigate to="../auth" />}
         />
       </Routes>
     </div>

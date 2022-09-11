@@ -44,7 +44,7 @@ const EditProductBox = () => {
   const [productFeatures, setProductFeatures] = useState<TProductFeatures>(
     initialProductFeatures
   );
-  const [productFeatureToEdit, setProductFeatureToEdit] = useState({});
+  // const [productFeatureToEdit, setProductFeatureToEdit] = useState({});
   const product = useSelector(selectProductById);
   // console.log(product);
 

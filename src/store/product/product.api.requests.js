@@ -19,6 +19,9 @@ export const getAllProducts = (itemsPerPage, currentPage) =>
     `/api/v1/inventory/products?pagination_limit=${itemsPerPage}&pagination_page=${currentPage}`
   );
 
+export const getAllProductsList = () =>
+  API.get(`/api/v1/inventory/products?listOnly=Yes&showing=productEntry`);
+
 export const getProductsBrandList = () =>
   API.get(`/api/v1/frontend_renderers/list/product-brand-names`);
 

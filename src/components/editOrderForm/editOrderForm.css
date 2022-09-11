@@ -1,0 +1,8 @@
+.editOrder__product {
+  display: grid;
+  grid-template-columns: 20vw 10vw repeat(3, 1fr) 3rem;
+}
+
+.editOrder__product input {
+  margin-right: 1rem;
+}
